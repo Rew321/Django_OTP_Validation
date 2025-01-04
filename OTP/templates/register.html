@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="container mt-5 pt-4">
+
+        <div class="col-6 mx-auto">
+            <h3 class="text-center">Register</h3>
+            <form action="" method="post">
+                {% csrf_token %}
+
+                {% if message %}
+                    <div class="alert alert-{{class}}">
+                        {{message}}
+                    </div>
+                {% endif %}
+                <div class="row">
+                    <div class="form-group col-12">
+                        <input type="text" placeholder="Email" class="form-control" name="email" required>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="form-group col-12">
+                        <input type="text" placeholder="Name" class="form-control" name="name"required>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="form-group col-12">
+                        <input type="text" placeholder="Mobile" class="form-control" name="mobile"required>
+                    </div>
+                </div>
+
+                <p> Already have account <a href="{% url 'login' %}">Login</a></a></p>
+                <button class="btn btn-primary">Submit</button>
+            </form>
+        </div>    
+    </div>
+
+{% endblock content %}
